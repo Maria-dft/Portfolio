@@ -1,0 +1,811 @@
+/* ========================================
+   STYLES CSS DU PORTFOLIO
+   ========================================
+   Ce fichier contient tous les styles du portfolio de Maria De Stephanis.
+   Il définit les couleurs, les mises en page, les animations, etc.
+*/
+
+/* ========================================
+   RESET ET VARIABLES
+   ======================================== */
+
+/* Reset de base : supprime les marges et paddings par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS : définit les couleurs principales utilisées dans le site */
+:root {
+  --red: #e63946;          /* Rouge principal (couleur d'accent) */
+  --dark: #1d2130;         /* Noir bleuté pour les textes principaux */
+  --bg: #f0f2f8;          /* Gris clair pour le fond */
+  --sidebar-bg: #ffffff;  /* Blanc pour le fond de la sidebar */
+  --text: #333;           /* Couleur du texte principal */
+  --muted: #666;          /* Gris pour les textes secondaires */
+  --border: #e0e0e0;      /* Gris clair pour les bordures */
+}
+
+/* ========================================
+   STYLE GÉNÉRAL DU CORPS
+   ======================================== */
+body {
+  /* Police principale : Poppins (importée depuis Google Fonts) */
+  font-family: 'Poppins', sans-serif;
+  /* Fond de la page */
+  background: var(--bg);
+  /* Couleur du texte */
+  color: var(--text);
+  /* Utilisation du flexbox pour la mise en page */
+  display: flex;
+  /* Hauteur minimale = hauteur de l'écran */
+  min-height: 100vh;
+}
+
+/* ========================================
+   BARRE LATÉRALE (SIDEBAR)
+   ======================================== */
+.sidebar {
+  /* Largeur fixe de la sidebar */
+  width: 260px;
+  min-width: 260px;
+  /* Fond blanc */
+  background: var(--sidebar-bg);
+  /* Organisation verticale */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Espacement interne */
+  padding: 40px 0 30px;
+  /* Bordure à droite */
+  border-right: 1px solid var(--border);
+  /* Reste visible lors du défilement */
+  position: sticky;
+  top: 0;
+  /* Prend toute la hauteur */
+  height: 100vh;
+  /* S'affiche au-dessus du contenu */
+  z-index: 100;
+}
+
+/* Profil (photo et nom) */
+.nav-profile {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Photo de profil */
+.nav-profile img {
+  /* Taille carrée */
+  width: 100px;
+  height: 100px;
+  /* Forme circulaire */
+  border-radius: 50%;
+  /* Recadrage de l'image */
+  object-fit: cover;
+  /* Bordure rouge autour de la photo */
+  border: 3px solid var(--red);
+  margin-bottom: 15px;
+}
+
+/* Nom sous la photo */
+.nav-profile h4 {
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+/* Style du logo (cursif) */
+.logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  color: var(--dark);
+  position: relative;
+  margin-bottom: 40px;
+  padding: 4px 8px;
+}
+
+/* Décoration du logo (coin supérieur droit) */
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -6px;
+  width: 18px; height: 18px;
+  border-top: 3px solid var(--red);
+  border-right: 3px solid var(--red);
+}
+
+/* Décoration du logo (coin inférieur gauche) */
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: -6px;
+  width: 18px; height: 18px;
+  border-bottom: 3px solid var(--red);
+  border-left: 3px solid var(--red);
+}
+
+/* Navigation */
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Liste de navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+/* Liens de navigation */
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 40px;
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  /* Animation de couleur au survol */
+  transition: color 0.2s;
+}
+
+/* Bordure supérieure du premier lien */
+nav a:first-child {
+  border-top: 1px solid var(--border);
+}
+
+/* Icônes dans les liens */
+nav a i {
+  font-size: 1.1rem;
+  color: inherit;
+}
+
+/* Lien actif (page actuelle) */
+nav a.active {
+  color: var(--red);
+}
+
+nav a.active i {
+  color: var(--red);
+}
+
+/* Effet au survol des liens */
+nav a:hover {
+  color: var(--red);
+}
+
+/* ========================================
+   CONTENU PRINCIPAL (MAIN)
+   ======================================== */
+.main {
+  /* Prend tout l'espace restant */
+  flex: 1;
+  /* Marges internes */
+  padding: 50px 60px;
+  position: relative;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* Icônes en haut à droite */
+.top-icons {
+  position: absolute;
+  top: 30px; right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.top-icons i {
+  font-size: 1.2rem;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+/* ========================================
+   TITRES
+   ======================================== */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+/* Traits décoratifs sous les titres */
+.underline {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+
+.underline span {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Premier trait (plus long) */
+.underline span:first-child {
+  width: 40px;
+  background: var(--red);
+}
+
+/* Deuxième trait (plus court et transparent) */
+.underline span:last-child {
+  width: 22px;
+  background: var(--red);
+  opacity: 0.5;
+}
+
+/* Titres de section */
+h2.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+h2.title i {
+  color: var(--red);
+  margin-right: 10px;
+}
+
+/* ========================================
+   TEXTE D'INTRODUCTION
+   ======================================== */
+.intro {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+
+.intro span {
+  color: var(--red);
+}
+
+/* ========================================
+   ANIMATION DE FRAPPE (TYPING)
+   ======================================== */
+.typing-prefix {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.typing {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Texte bio/présentation */
+.bio {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 700px;
+}
+
+/* ========================================
+   INFORMATIONS ET COMPÉTENCES
+   ======================================== */
+.info-skills {
+  display: grid;
+  /* 3 colonnes : 2 pour les infos, 1 pour les compétences */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Grille d'informations */
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Prend 2 colonnes sur 3 */
+  grid-column: span 2;
+}
+
+/* Ligne d'information */
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Étiquette (label) */
+.info-item label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--dark);
+}
+
+/* Valeur de l'information */
+.info-item span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ========================================
+   COMPÉTENCES (BARRES DE PROGRESSION)
+   ======================================== */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.skill-item {
+  margin-bottom: 10px;
+}
+
+/* En-tête de compétence (nom + pourcentage) */
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+/* Barre de fond (grise) */
+.skill-bar {
+  height: 5px;
+  background: #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Barre de remplissage (rouge) */
+.skill-bar-fill {
+  height: 100%;
+  background: var(--red);
+  border-radius: 3px;
+  /* Animation de remplissage */
+  transition: width 1s ease;
+}
+
+/* ========================================
+   BOUTONS
+   ======================================== */
+.buttons {
+  display: flex;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+/* Style de base des boutons */
+.btn {
+  padding: 14px 34px;
+  /* Bouton rond */
+  border-radius: 50px;
+  border: none;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  /* Animation au survol */
+  transition: background 0.2s, transform 0.1s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Effet au survol */
+.btn:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   WRAPPER (pour Formations/Projets)
+   ======================================== */
+.wrapper {
+  padding: 30px 0;
+}
+
+.wrapper .column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ========================================
+   CARTES (CARDS)
+   ======================================== */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  /* Ombre douce */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  /* Animation au survol */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Date dans les cartes */
+.card .date {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Titre dans les cartes */
+.card h3 {
+  color: var(--dark);
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+/* Texte dans les cartes */
+.card p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   GRILLE DE PROJETS
+   ======================================== */
+.projects-grid {
+  display: grid;
+  /* Colonnes automatiques (min 300px) */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Carte de projet */
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Image du projet */
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Corps de la carte de projet */
+.project-card .card-body {
+  padding: 20px;
+}
+
+.project-card h3 {
+  color: var(--dark);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   FORMULAIRE DE CONTACT
+   ======================================== */
+.contact-container {
+  max-width: 600px;
+}
+
+.contact-form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+/* Champs de formulaire */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+/* Effet quand on clique sur un champ */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+
+/* Zone de texte (textarea) */
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ========================================
+   RESPONSIVE (VERSION MOBILE)
+   ======================================== */
+/* S'active quand l'écran fait moins de 900px */
+@media (max-width: 900px) {
+  /* Le corps passe en colonne */
+  body {
+    flex-direction: column;
+  }
+
+  /* La sidebar prend toute la largeur */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .nav-profile {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .nav-profile img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Masquer le logo sur mobile */
+  .logo {
+    display: none;
+  }
+
+  /* Navigation en ligne sur mobile */
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+  }
+
+  nav a:first-child {
+    border: none;
+  }
+
+  /* Réduire les marges sur mobile */
+  .main {
+    padding: 30px 20px;
+  }
+
+  /* Infos et compétences en une seule colonne */
+  .info-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-column: span 1;
+  }
+
+  /* Un seul projet par ligne sur mobile */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   ANIMATION D'ENVOI DU FORMULAIRE
+   ======================================== */
+
+/* Overlay (fond transparent qui couvre l'écran) */
+#send-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* Caché par défaut */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Overlay visible */
+#send-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ========================================
+   ENVELOPPE ANIMÉE
+   ======================================== */
+
+/* Conteneur de l'enveloppe */
+.envelope-wrap {
+  position: relative;
+  width: 120px;
+  height: 85px;
+  margin-bottom: 30px;
+}
+
+/* Corps de l'enveloppe */
+.envelope-body {
+  width: 120px;
+  height: 85px;
+  background: #fff;
+  border: 3px solid var(--red);
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/* Rabat du bas (triangles) */
+.envelope-body::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 0;
+  border-left: 60px solid #f5c6c8;
+  border-right: 60px solid #f5c6c8;
+  border-top: 42px solid transparent;
+}
+
+/* Rabat du haut (triangles) */
+.envelope-flap {
+  width: 0; height: 0;
+  border-left: 63px solid transparent;
+  border-right: 63px solid transparent;
+  border-top: 48px solid var(--red);
+  position: absolute;
+  top: -3px; left: -3px;
+  transform-origin: top center;
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+/* Ouverture du rabat */
+.envelope-wrap.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+/* Lettre qui sort de l'enveloppe */
+.envelope-letter {
+  width: 90px;
+  height: 65px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  transition: transform 0.6s ease 0.4s;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+}
+
+/* Lignes sur la lettre */
+.envelope-letter span {
+  display: block;
+  height: 3px;
+  background: #ddd;
+  border-radius: 2px;
+  width: 70%;
+}
+
+.envelope-letter span:first-child {
+  width: 50%;
+  background: var(--red);
+}
+
+/* Lettre qui s'envole */
+.envelope-wrap.open .envelope-letter {
+  transform: translateX(-50%) translateY(-55px);
+}
+
+/* ========================================
+   ANIMATION D'ENVOL
+   ======================================== */
+/* Définition de l'animation */
+@keyframes flyAway {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(300px, -300px) rotate(25deg) scale(0.3); opacity: 0; }
+}
+
+/* Application de l'animation */
+.envelope-wrap.fly {
+  animation: flyAway 0.8s ease-in 1s forwards;
+}
+
+/* ========================================
+   MESSAGE DE CONFIRMATION
+   ======================================== */
+.send-message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 1.8s, transform 0.5s ease 1.8s;
+  text-align: center;
+}
+
+.send-message i {
+  color: var(--red);
+  margin-right: 8px;
+}
+
+/* Afficher le message */
+#send-overlay.active .send-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   BOUTON DÉSACTIVÉ
+   ======================================== */
+/* Bouton pendant l'envoi (désactivé) */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- le responsive -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+ 
+  <title>Contact - Maria De Stephanis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Importation de EmailJS pour l'envoi des emails -->
+  <!-- EmailJS permet d'envoyer des emails directement depuis le formulaire sans backend -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <div id="send-overlay">
+    <!-- Enveloppe animée -->
+    <div class="envelope-wrap" id="envelope">
+      <!-- Rabat supérieur de l'enveloppe -->
+      <div class="envelope-flap"></div>
+      <!-- Lettre qui sort de l'enveloppe -->
+      <div class="envelope-letter">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div class="envelope-body"></div>
+    </div>
+    <p class="send-message"><i class="fas fa-check-circle"></i> Message envoyé avec succès !</p>
+  </div>
+
+  <aside class="sidebar">
+    <div class="nav-profile">
+        <img src="Profil.png" alt="Maria De Stephanis">
+        <h4>Maria De Stephanis</h4>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="Index.html"><i class="fas fa-user"></i> À Propos</a></li>
+        <li><a href="Formations.html"><i class="fas fa-graduation-cap"></i> Formations</a></li>
+        <li><a href="Projets.html"><i class="fas fa-briefcase"></i> Projets</a></li>
+        <!-- Lien actif = page actuelle -->
+        <li><a href="Contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <h1>Me Contacter</h1>
+    
+    <!-- Décoration : deux traits rouges sous le titre -->
+    <div class="underline">
+      <span></span>
+      <span></span>
+    </div>
+
+    <p class="intro" style="margin-bottom: 30px;">
+      N'hésitez pas à me contacter pour toute question ou opportunité !
+    </p>
+    <div class="contact-container">
+      
+      <div class="contact-form">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="from_name" placeholder="Votre nom" required>
+          </div>
+
+          <!-- Champ Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="from_email" placeholder="Votre email" required>
+          </div>
+
+          <!-- Champ Sujet -->
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+          </div>
+
+          <!-- Champ Message -->
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+          </div>
+
+          <!-- Bouton d'envoi -->
+          <button type="submit" class="btn" id="submit-btn" style="width: 100%;">
+            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Envoyer
+          </button>
+        </form>
+      </div>
+
+      <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        
+        <!-- Email -->
+        <div class="card" style="text-align: center; padding: 20px;">
+          <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--red); margin-bottom: 10px;"></i>
+          <h3 style="font-size: 1rem; margin-bottom: 5px;">Email</h3>
+          <p style="font-size: 0.85rem;">maria.de.stephanis57@email.com</p>
+        </div>
+        
+        <!-- Téléphone -->
+        <div class="card" style="text-align: center; padding: 20px;">
+          <i class="fas fa-phone" style="font-size: 1.5rem; color: var(--red); margin-bottom: 10px;"></i>
+          <h3 style="font-size: 1rem; margin-bottom: 5px;">Téléphone</h3>
+          <p style="font-size: 0.85rem;">+33 06 08 64 51 03</p>
+        </div>
+        
+        <!-- Localisation -->
+        <div class="card" style="text-align: center; padding: 20px;">
+          <i class="fas fa-map-marker-alt" style="font-size: 1.5rem; color: var(--red); margin-bottom: 10px;"></i>
+          <h3 style="font-size: 1rem; margin-bottom: 5px;">Localisation</h3>
+          <p style="font-size: 0.85rem;">Thionville, France</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <p class="intro" style="margin-bottom: 20px;">Suivez-moi</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+          <!-- Lien LinkedIn -->
+          <a href="https://www.linkedin.com/in/maria-de-stephanis-3a920b332/" class="btn" style="width: auto; padding: 12px 25px;">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+          <!-- Lien GitHub -->
+          <a href="https://github.com/Maria-dft" class="btn" style="width: auto; padding: 12px 25px;">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Script JavaScript pour l'envoi du formulaire et l'animation -->
+  <script src="scripts.js"></script>
+
+</body>
+</html>
+
