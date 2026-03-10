@@ -1,2 +1,20 @@
 # Portfolio
-J'ai réaliser un portfolio réaliser en langages HTML,CSS &amp; JavaScript
+
+Bienvenue sur mon portfolio.
+
+Ce projet est un site web personnel développé en HTML, CSS et JavaScript.  
+Il présente mon profil, mes formations et mes projets.
+
+## Technologies utilisées
+- HTML
+- CSS
+- JavaScript
+
+## Pages du site
+- Accueil
+- Projets
+- Formations
+- Contact
+
+## Auteur
+Maria De Stephanis
